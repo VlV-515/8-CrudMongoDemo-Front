@@ -1,0 +1,8 @@
+.search {
+  display: flex;
+  justify-content: space-between;
+}
+.search > input {
+  width: 30ch;
+  border: 2px #333 solid;
+}
