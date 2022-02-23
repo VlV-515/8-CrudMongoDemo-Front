@@ -1,1 +1,60 @@
-<p>form-users works!</p>
+<div class="container mt-5 p-3 bg-body rounded shadow-lg" style="width: 50ch;">
+    <div class="mb-4 text-center">
+        <h3>Añadir nuevo usuario</h3>
+    </div>
+    <form class="form-control">
+        <div class="mb-3 form-group">
+            <label for="form-id" class="form-label">ID:</label>
+            <input type="text" class="form-control" id="form-id">
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="form-username" class="form-label">Username</label>
+            <input required type="text" class="form-control" id="form-username">
+            <small id="helpId" class="form-text text-muted">* Required</small>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="form-password" class="form-label">Password</label>
+            <input required type="text" class="form-control" id="form-password">
+            <small id="helpId" class="form-text text-muted">* Required</small>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="form-name" class="form-label">Name</label>
+            <input required type="text" class="form-control" id="form-name">
+            <small id="helpId" class="form-text text-muted">* Required</small>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="form-lastName" class="form-label">Lastname</label>
+            <input required type="text" class="form-control" id="form-lastName">
+            <small id="helpId" class="form-text text-muted">* Required</small>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="form-email" class="form-label">Email</label>
+            <input required type="email" class="form-control" id="form-email">
+            <small id="helpId" class="form-text text-muted">* Required</small>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="form-role" class="form-label">Role</label>
+            <select required class="form-control" name="" id="form-role">
+                <option disabled selected>Select...</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+            </select>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label required for="form-date" class="form-label">Date In:</label>
+            <input  type="date" class="form-control" id="form-date">
+        </div>
+
+        <div class="pb-4 pt-3 form-group">
+            <button type="submit" class="btn btn-success me-1">Aceptar</button>
+            <button class="btn btn-danger">Cancelar</button>
+        </div>
+    </form>
+</div>
