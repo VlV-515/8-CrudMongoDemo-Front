@@ -1,5 +1,5 @@
 export interface UserInterface {
-  _id: string;
+  _id?: string;
   username: string;
   pass: string;
   name: string;
