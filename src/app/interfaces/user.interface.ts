@@ -8,3 +8,6 @@ export interface UserInterface {
   role: string;
   dateIn: string;
 }
+export interface UserResponseInterface {
+  msg: string;
+}
