@@ -1,6 +1,6 @@
 import { UserService } from './../services/user.service';
 import { UserInterface } from './../../interfaces/user.interface';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
   templateUrl: './table-users.component.html',
   styleUrls: ['./table-users.component.css'],
 })
-export class TableUsersComponent implements OnInit {
+export class TableUsersComponent {
   viewForm: boolean = false;
   newForm!: boolean;
   dataUsers!: UserInterface[];
+  userToEdit!: UserInterface;
 
   constructor(
     private readonly router: Router,
@@ -19,21 +20,30 @@ export class TableUsersComponent implements OnInit {
   ) {
     this.refreshDataTable();
   }
-
-  ngOnInit(): void {}
   onNewUser(): void {
     this.newForm = true;
     this.viewForm = true;
   }
-  onEditUser(): void {
+  onEditUser(userData: UserInterface): void {
+    this.userToEdit = userData;
     this.newForm = false;
     this.viewForm = true;
   }
-  onSave(dataForm: UserInterface): void {
+  onSaveNew(dataForm: UserInterface): void {
     this.userSvc.createUser(dataForm).subscribe({
       next: (res) => {
         if (res.msg == 'ok') {
           window.alert('User added successfully. =)');
+          this.refreshDataTable();
+        }
+      },
+    });
+  }
+  onSaveEdit(dataForm: UserInterface): void {
+    this.userSvc.editUser(dataForm).subscribe({
+      next: (res) => {
+        if (res.msg == 'ok') {
+          window.alert('User updated successfully. =)');
           this.refreshDataTable();
         }
       },

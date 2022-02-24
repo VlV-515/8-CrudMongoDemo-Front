@@ -36,7 +36,7 @@
                         <td scope="row">{{user.dateIn}}</td>
                         <td scope="row">
                             <div role="group">
-                                <button type="button" class="btn btn-warning me-2">
+                                <button type="button" class="btn btn-warning me-2" (click)="onEditUser(user)">
                                     <i class="bi bi-pencil-square"></i>
                                 </button>
                                 <button type="button" class="btn btn-danger" (click)="ondDelete(user._id,i)">
@@ -53,7 +53,9 @@
 <ng-template #ViewFormContainer>
     <app-form-users 
     (viewForm)="viewForm=false"
-    (dataForm)="onSave($event)"
+    (dataFormNew)="onSaveNew($event)"
+    (dataFormEdit)="onSaveEdit($event)"
     [formNew]="newForm"
+    [dataEdit]="userToEdit"
     ></app-form-users>
 </ng-template>

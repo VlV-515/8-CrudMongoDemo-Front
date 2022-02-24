@@ -27,6 +27,14 @@ export class UserService {
       .pipe(catchError((e) => this.handlerError(e)));
   }
   //Update
+  editUser(user: UserInterface): Observable<UserResponseInterface> {
+    return this.http
+      .put<UserResponseInterface>(
+        `${environment.URL_API}/crud/${user._id}`,
+        user
+      )
+      .pipe(catchError((e) => this.handlerError(e)));
+  }
   //Delete
   deteleUser(id: string): Observable<UserResponseInterface> {
     return this.http
