@@ -17,9 +17,7 @@ export class TableUsersComponent implements OnInit {
     private readonly router: Router,
     private readonly userSvc: UserService
   ) {
-    this.userSvc.getAllUsers().subscribe({
-      next: (data) => (this.dataUsers = data),
-    });
+    this.refreshDataTable();
   }
 
   ngOnInit(): void {}
@@ -32,7 +30,14 @@ export class TableUsersComponent implements OnInit {
     this.viewForm = true;
   }
   onSave(dataForm: UserInterface): void {
-    console.log(dataForm);
+    this.userSvc.createUser(dataForm).subscribe({
+      next: (res) => {
+        if (res.msg == 'ok') {
+          window.alert('User added successfully. =)');
+          this.refreshDataTable();
+        }
+      },
+    });
   }
   ondDelete(id: string, index: number): void {
     if (!confirm('Are you sure?')) return;
@@ -41,6 +46,11 @@ export class TableUsersComponent implements OnInit {
         this.dataUsers.splice(index);
         window.alert('Successfully removed =)');
       },
+    });
+  }
+  refreshDataTable(): void {
+    this.userSvc.getAllUsers().subscribe({
+      next: (data) => (this.dataUsers = data),
     });
   }
 }

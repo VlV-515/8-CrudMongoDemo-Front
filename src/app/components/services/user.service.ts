@@ -21,6 +21,11 @@ export class UserService {
       .pipe(catchError((e) => this.handlerError(e)));
   }
   //Create
+  createUser(user: UserInterface): Observable<UserResponseInterface> {
+    return this.http
+      .post<UserResponseInterface>(`${environment.URL_API}/crud`, user)
+      .pipe(catchError((e) => this.handlerError(e)));
+  }
   //Update
   //Delete
   deteleUser(id: string): Observable<UserResponseInterface> {
