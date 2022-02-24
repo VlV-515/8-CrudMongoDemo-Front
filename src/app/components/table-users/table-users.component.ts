@@ -1,3 +1,4 @@
+import { UserService } from './../services/user.service';
 import { UserInterface } from './../../interfaces/user.interface';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -10,9 +11,16 @@ import { Router } from '@angular/router';
 export class TableUsersComponent implements OnInit {
   viewForm: boolean = false;
   newForm!: boolean;
-  dataForm?: UserInterface;
+  dataUsers!: UserInterface[];
 
-  constructor(private readonly router: Router) {}
+  constructor(
+    private readonly router: Router,
+    private readonly userSvc: UserService
+  ) {
+    this.userSvc.getAllUsers().subscribe({
+      next: (data) => (this.dataUsers = data),
+    });
+  }
 
   ngOnInit(): void {}
   onNewUser(): void {
@@ -25,5 +33,14 @@ export class TableUsersComponent implements OnInit {
   }
   onSave(dataForm: UserInterface): void {
     console.log(dataForm);
+  }
+  ondDelete(id: string, index: number): void {
+    if (!confirm('Are you sure?')) return;
+    this.userSvc.deteleUser(id).subscribe({
+      next: (res) => {
+        this.dataUsers.splice(index);
+        window.alert('Successfully removed =)');
+      },
+    });
   }
 }
