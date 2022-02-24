@@ -2,54 +2,56 @@
     <div class="mb-4 text-center">
         <h3>Añadir nuevo usuario</h3>
     </div>
-    <form class="form-control">
-        <div class="mb-3 form-group">
+    <form class="form-control" [formGroup]="formUser" (ngSubmit)="onSave()">
+        <div class="mb-3 form-group" *ngIf="!formNew">
             <label for="form-id" class="form-label">ID:</label>
-            <input type="text" class="form-control" id="form-id">
+            <input type="text" class="form-control" id="form-id" formControlName="_id">
         </div>
 
         <div class="mb-3 form-group">
             <label for="form-username" class="form-label">Username</label>
-            <input required type="text" class="form-control" id="form-username">
+            <input required type="text" class="form-control" id="form-username" formControlName="username">
             <small id="helpId" class="form-text text-muted">* Required</small>
         </div>
 
         <div class="mb-3 form-group">
             <label for="form-password" class="form-label">Password</label>
-            <input required type="text" class="form-control" id="form-password">
+            <input required type="text" class="form-control" id="form-password" formControlName="pass">
             <small id="helpId" class="form-text text-muted">* Required</small>
         </div>
 
         <div class="mb-3 form-group">
             <label for="form-name" class="form-label">Name</label>
-            <input required type="text" class="form-control" id="form-name">
+            <input required type="text" class="form-control" id="form-name" formControlName="name">
             <small id="helpId" class="form-text text-muted">* Required</small>
         </div>
 
         <div class="mb-3 form-group">
             <label for="form-lastName" class="form-label">Lastname</label>
-            <input required type="text" class="form-control" id="form-lastName">
+            <input required type="text" class="form-control" id="form-lastName" formControlName="lastname">
             <small id="helpId" class="form-text text-muted">* Required</small>
         </div>
 
         <div class="mb-3 form-group">
             <label for="form-email" class="form-label">Email</label>
-            <input required type="email" class="form-control" id="form-email">
+            <input required type="email" class="form-control" id="form-email" formControlName="email">
             <small id="helpId" class="form-text text-muted">* Required</small>
         </div>
 
         <div class="mb-3 form-group">
             <label for="form-role" class="form-label">Role</label>
-            <select required class="form-control" name="" id="form-role">
+            <select required class="form-control" name="" id="form-role" formControlName="role">
                 <option disabled selected>Select...</option>
                 <option value="admin">Admin</option>
                 <option value="user">User</option>
             </select>
+            <small id="helpId" class="form-text text-muted">* Required</small>
         </div>
 
         <div class="mb-3 form-group">
-            <label required for="form-date" class="form-label">Date In:</label>
-            <input type="date" class="form-control" id="form-date">
+            <label for="form-date" class="form-label">Date In:</label>
+            <input required type="date" class="form-control" id="form-date" formControlName="dateIn">
+            <small id="helpId" class="form-text text-muted">* Required</small>
         </div>
 
         <div class="pb-4 pt-3 form-group">

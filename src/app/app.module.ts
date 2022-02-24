@@ -7,6 +7,7 @@ import { TableUsersComponent } from './components/table-users/table-users.compon
 import { HeaderComponent } from './components/header/header.component';
 import { FormUsersComponent } from './components/form-users/form-users.component';
 import { Page404Component } from './components/page404/page404.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { Page404Component } from './components/page404/page404.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

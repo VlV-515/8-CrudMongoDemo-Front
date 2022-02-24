@@ -1,13 +1,8 @@
-<pre class="d-flex mt-1">
-    <!-- Chivatilllo -->
-    <button class="btn btn-primary" (click)="viewForm=true">True</button>
-    <button class="btn btn-primary ms-1" (click)="viewForm=false">False</button>
-</pre>
 <div class="container my-5 p-3 bg-body rounded shadow-lg">
     <ng-container *ngIf="!viewForm;else ViewFormContainer">
         <div class="search mb-3">
             <button class="btn btn-success">
-                <i class="bi bi-person-plus-fill" (click)="viewForm=true">New User</i>
+                <i class="bi bi-person-plus-fill" (click)="onNewUser()">New User</i>
             </button>
             <input type="text" class="form-control" placeholder="Search...">
         </div>
@@ -56,5 +51,9 @@
     </ng-container>
 </div>
 <ng-template #ViewFormContainer>
-    <app-form-users (viewForm)="viewForm=false"></app-form-users>
+    <app-form-users 
+    (viewForm)="viewForm=false"
+    (dataForm)="onSave($event)"
+    [formNew]="newForm"
+    ></app-form-users>
 </ng-template>
