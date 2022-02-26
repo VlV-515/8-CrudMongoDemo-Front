@@ -8,6 +8,10 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 ### Pre-requisitos 📋
 
+_Esta APP requiere previamente de una API, en el siguiente enlace podras encontrarla._
+
+- [Enlace](https://github.com/VlV-515/8-CrudMongoDemo-API)
+
 _Necesitaremos de una api (back-end) para este proyecto, la cual podras encontrar en el siguiente enlace._
 
 ```
@@ -53,3 +57,4 @@ http://localhost:4200/
 
 - [Bootstrap](https://getbootstrap.com/) - Usado para los estilos.
 - [Bootstrap Icons](https://icons.getbootstrap.com/) - Iconos usados para la decoración
+
